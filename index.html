@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CENTRIA — Centro de Terapia Integral</title>
+    <meta
+      name="description"
+      content="CENTRIA es un centro de terapia integral. Cuidamos tu bienestar emocional, físico y familiar con profesionales certificados."
+    />
+    <link rel="icon" type="image/png" href="assets/logo-vertical.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              centria: { primary: "#88b7bf", dark: "#6a9ba3", cream: "#fbfedf", ink: "#2f4a4f" },
+            },
+            fontFamily: {
+              sans: ['Nunito', 'system-ui', 'sans-serif'],
+              display: ['Poppins', 'Nunito', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="bg-white text-centria-ink">
+    <!-- HEADER -->
+    <header class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur border-b border-centria-cream">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="assets/logo-horizontal.png" alt="CENTRIA — Centro de Terapia Integral" class="h-10 sm:h-12 w-auto" />
+        </a>
+        <nav class="hidden lg:flex items-center gap-9">
+          <a href="index.html" data-nav="index.html" class="nav-link">Inicio</a>
+          <a href="nosotros.html" data-nav="nosotros.html" class="nav-link">Nosotros</a>
+          <a href="servicios.html" data-nav="servicios.html" class="nav-link">Servicios</a>
+          <a href="especialistas.html" data-nav="especialistas.html" class="nav-link">Especialistas</a>
+          <a href="contacto.html" data-nav="contacto.html" class="nav-link">Contacto</a>
+        </nav>
+        <div class="hidden lg:block">
+          <a href="contacto.html" class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            Agenda tu cita
+          </a>
+        </div>
+        <button id="burger" class="lg:hidden p-2 rounded-md text-centria-ink" aria-label="Abrir menú" aria-expanded="false">
+          <svg class="icon-open w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="icon-close hidden w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="lg:hidden bg-white border-t border-centria-cream">
+        <div class="px-5 py-4 flex flex-col gap-4">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="nosotros.html" class="nav-link">Nosotros</a>
+          <a href="servicios.html" class="nav-link">Servicios</a>
+          <a href="especialistas.html" class="nav-link">Especialistas</a>
+          <a href="contacto.html" class="nav-link">Contacto</a>
+          <a href="contacto.html" class="btn-primary justify-center">Agenda tu cita</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative pt-20">
+      <div class="relative h-[88vh] min-h-[560px] w-full overflow-hidden">
+        <img src="assets/hero.jpg" alt="Sala de terapia luminosa y acogedora" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="relative max-w-7xl mx-auto px-5 sm:px-8 h-full flex items-center">
+          <div class="max-w-2xl reveal">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 text-centria-dark text-sm font-semibold">
+              <span class="w-2 h-2 rounded-full bg-centria-primary"></span>
+              Centro de Terapia Integral
+            </span>
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-5 leading-tight">
+              Cuidamos tu <span class="text-centria-dark">bienestar integral</span>
+            </h1>
+            <p class="mt-5 text-lg text-centria-ink/80 max-w-xl">
+              Un espacio cálido y profesional donde acompañamos tu proceso emocional,
+              cognitivo y físico. Terapia personalizada para cada etapa de tu vida.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="contacto.html" class="btn-primary">Reservar cita</a>
+              <a href="servicios.html" class="btn-outline">Conoce nuestros servicios</a>
+            </div>
+            <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-centria-ink/70">
+              <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-centria-primary"></span> Profesionales certificados</div>
+              <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-centria-primary"></span> Atención personalizada</div>
+              <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-centria-primary"></span> Atención 100% presencial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS / SERVICIOS PREVIEW -->
+    <section class="py-20 sm:py-24 bg-centria-cream/40">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <h2 class="font-display text-3xl sm:text-4xl font-bold">Acompañamiento que transforma</h2>
+          <p class="mt-4 text-centria-ink/75">
+            Combinamos disciplinas terapéuticas para brindarte un cuidado completo y humano.
+          </p>
+        </div>
+
+        <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="card reveal">
+            <div class="icon-bubble">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.55 1.23M21 3v6h-6"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Terapia Psicológica</h3>
+            <p class="mt-2 text-centria-ink/75">Espacio seguro para gestionar emociones, ansiedad, autoestima y crisis vitales.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon-bubble">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 11a4 4 0 014-4h.5M21 13a4 4 0 01-4 4h-.5M8 7v10a4 4 0 008 0V7a4 4 0 00-8 0z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Terapia de Lenguaje</h3>
+            <p class="mt-2 text-centria-ink/75">Estimulación, comunicación y trastornos del habla en niños y adultos.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon-bubble">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.35-7-10a5 5 0 019-3 5 5 0 019 3c0 5.65-7 10-7 10z"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Terapia Ocupacional</h3>
+            <p class="mt-2 text-centria-ink/75">Desarrollamos autonomía, integración sensorial y habilidades para la vida diaria.</p>
+          </article>
+        </div>
+
+        <div class="mt-12 text-center reveal">
+          <a href="servicios.html" class="btn-outline">Ver todos los servicios →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="py-20 sm:py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal">
+          <span class="text-centria-primary font-semibold uppercase tracking-wider text-sm">¿Por qué CENTRIA?</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold mt-3">Beneficios que marcan la diferencia</h2>
+          <p class="mt-4 text-centria-ink/75">
+            Diseñamos cada sesión pensando en ti. Un equipo multidisciplinario que escucha,
+            acompaña y guía tu proceso con calidez y rigor profesional.
+          </p>
+          <ul class="mt-8 space-y-5">
+            <li class="flex gap-4">
+              <span class="icon-bubble" style="margin-bottom:0;width:44px;height:44px;border-radius:12px">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <h4 class="font-semibold text-lg">Atención personalizada</h4>
+                <p class="text-centria-ink/70 text-sm">Plan terapéutico adaptado a tus necesidades y ritmo.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="icon-bubble" style="margin-bottom:0;width:44px;height:44px;border-radius:12px">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <h4 class="font-semibold text-lg">Profesionales certificados</h4>
+                <p class="text-centria-ink/70 text-sm">Especialistas con amplia experiencia clínica y formación continua.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="icon-bubble" style="margin-bottom:0;width:44px;height:44px;border-radius:12px">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <h4 class="font-semibold text-lg">Espacio cálido y confidencial</h4>
+                <p class="text-centria-ink/70 text-sm">Ambientes diseñados para la calma y el respeto absoluto a tu privacidad.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="icon-bubble" style="margin-bottom:0;width:44px;height:44px;border-radius:12px">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <h4 class="font-semibold text-lg">Atención 100% presencial</h4>
+                <p class="text-centria-ink/70 text-sm">Te recibimos en nuestro centro, en un espacio cálido pensado para tu bienestar.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="relative reveal">
+          <div class="absolute -inset-6 bg-centria-cream rounded-[2rem] -z-10"></div>
+          <img src="assets/about.jpg" alt="Terapeuta acompañando a paciente" class="rounded-[1.75rem] w-full h-[480px] object-cover shadow-xl" />
+          <div class="absolute -bottom-8 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-centria-cream max-w-[280px]">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full bg-centria-primary/15 flex items-center justify-center text-centria-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold leading-tight">Profesionales especializados</p>
+                <p class="text-xs text-centria-ink/60">en cada área terapéutica</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="py-20 sm:py-24 bg-centria-cream/50">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+        <div class="text-center max-w-2xl mx-auto reveal">
+          <h2 class="font-display text-3xl sm:text-4xl font-bold">Lo que dicen quienes confían en CENTRIA</h2>
+          <p class="mt-4 text-centria-ink/75">Historias reales de transformación y bienestar.</p>
+        </div>
+
+        <div class="mt-12 reveal" data-slider>
+          <div class="slider bg-white border border-centria-cream shadow-sm">
+            <div class="slider-track">
+              <div class="slider-slide">
+                <svg class="w-10 h-10 text-centria-primary mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 7h4v4H7c0 2.21 1.79 4 4 4v2c-3.31 0-6-2.69-6-6V7zm10 0h-4v4h4c0 2.21-1.79 4-4 4v2c3.31 0 6-2.69 6-6V7z"/></svg>
+                <p class="text-lg sm:text-xl text-centria-ink/85 leading-relaxed">
+                  Encontré en CENTRIA un espacio que cambió mi forma de ver la vida. La calidez del equipo y la profesionalidad hicieron toda la diferencia.
+                </p>
+                <div class="mt-6 flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-full bg-centria-primary/15 flex items-center justify-center font-bold text-centria-dark">MR</div>
+                  <div>
+                    <p class="font-semibold">María Rojas</p>
+                    <p class="text-sm text-centria-ink/60">Paciente desde 2023</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slider-slide">
+                <svg class="w-10 h-10 text-centria-primary mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 7h4v4H7c0 2.21 1.79 4 4 4v2c-3.31 0-6-2.69-6-6V7zm10 0h-4v4h4c0 2.21-1.79 4-4 4v2c3.31 0 6-2.69 6-6V7z"/></svg>
+                <p class="text-lg sm:text-xl text-centria-ink/85 leading-relaxed">
+                  Mi hijo ha avanzado muchísimo en lenguaje. Las terapeutas son pacientes, creativas y siempre nos hacen sentir en familia.
+                </p>
+                <div class="mt-6 flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-full bg-centria-primary/15 flex items-center justify-center font-bold text-centria-dark">JV</div>
+                  <div>
+                    <p class="font-semibold">Jorge Vargas</p>
+                    <p class="text-sm text-centria-ink/60">Padre de familia</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slider-slide">
+                <svg class="w-10 h-10 text-centria-primary mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M7 7h4v4H7c0 2.21 1.79 4 4 4v2c-3.31 0-6-2.69-6-6V7zm10 0h-4v4h4c0 2.21-1.79 4-4 4v2c3.31 0 6-2.69 6-6V7z"/></svg>
+                <p class="text-lg sm:text-xl text-centria-ink/85 leading-relaxed">
+                  La terapia de pareja nos ayudó a comunicarnos mejor. Hoy nos sentimos más conectados que nunca. Gracias, equipo CENTRIA.
+                </p>
+                <div class="mt-6 flex items-center gap-3">
+                  <div class="w-12 h-12 rounded-full bg-centria-primary/15 flex items-center justify-center font-bold text-centria-dark">LP</div>
+                  <div>
+                    <p class="font-semibold">Lucía y Pedro</p>
+                    <p class="text-sm text-centria-ink/60">Terapia de pareja</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button data-prev aria-label="Anterior" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-centria-cream flex items-center justify-center text-centria-dark hover:bg-centria-primary hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button data-next aria-label="Siguiente" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-centria-cream flex items-center justify-center text-centria-dark hover:bg-centria-primary hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+          <div class="slider-dots flex justify-center gap-2 mt-6"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-20">
+      <div class="max-w-5xl mx-auto px-5 sm:px-8">
+        <div class="rounded-3xl bg-centria-primary text-white p-10 sm:p-14 text-center reveal">
+          <h2 class="font-display text-3xl sm:text-4xl font-bold">Da el primer paso hacia tu bienestar</h2>
+          <p class="mt-4 text-white/90 max-w-xl mx-auto">
+            Agenda tu cita y conversemos. Estamos aquí para acompañarte.
+          </p>
+          <div class="mt-8">
+            <a href="contacto.html" class="inline-flex items-center gap-2 bg-white text-centria-dark font-semibold px-7 py-3 rounded-full hover:bg-centria-cream transition">
+              Reservar cita
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER (incluido al final de cada página) -->
+    <footer class="bg-centria-ink text-white/85">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14 grid md:grid-cols-4 gap-10">
+        <div>
+          <img src="assets/logo-vertical.png" alt="CENTRIA" class="h-16 w-auto bg-white/95 rounded-xl p-2" />
+          <p class="mt-4 text-sm text-white/70">
+            Centro de Terapia Integral. Cuidamos tu bienestar emocional, físico y familiar.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-display font-semibold text-white mb-4">Navegación</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-centria-cream">Inicio</a></li>
+            <li><a href="nosotros.html" class="hover:text-centria-cream">Nosotros</a></li>
+            <li><a href="servicios.html" class="hover:text-centria-cream">Servicios</a></li>
+            <li><a href="especialistas.html" class="hover:text-centria-cream">Especialistas</a></li>
+            <li><a href="contacto.html" class="hover:text-centria-cream">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-display font-semibold text-white mb-4">Contacto</h4>
+          <ul class="space-y-2 text-sm text-white/75">
+            <li>Av. Bienestar 123, Lima — Perú</li>
+            <li>+51 906 026 820</li>
+            <li>hola@centria.com</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-display font-semibold text-white mb-4">Síguenos</h4>
+          <div class="flex gap-3">
+            <a href="#" class="social-icon" aria-label="Instagram"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 1.2.06 1.85.25 2.28.42.57.22.98.49 1.41.92.43.43.7.84.92 1.41.17.43.36 1.08.42 2.28.06 1.2.07 1.6.07 4.8s-.01 3.6-.07 4.8c-.06 1.2-.25 1.85-.42 2.28-.22.57-.49.98-.92 1.41-.43.43-.84.7-1.41.92-.43.17-1.08.36-2.28.42-1.2.06-1.6.07-4.8.07s-3.6-.01-4.8-.07c-1.2-.06-1.85-.25-2.28-.42-.57-.22-.98-.49-1.41-.92a3.9 3.9 0 01-.92-1.41c-.17-.43-.36-1.08-.42-2.28C2.21 15.6 2.2 15.2 2.2 12s.01-3.6.07-4.8c.06-1.2.25-1.85.42-2.28.22-.57.49-.98.92-1.41.43-.43.84-.7 1.41-.92.43-.17 1.08-.36 2.28-.42C8.4 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.51.01-4.75.07-1.02.05-1.57.22-1.94.36-.49.19-.84.42-1.21.79-.37.37-.6.72-.79 1.21-.14.37-.31.92-.36 1.94C3.01 8.49 3 8.86 3 12s.01 3.51.07 4.75c.05 1.02.22 1.57.36 1.94.19.49.42.84.79 1.21.37.37.72.6 1.21.79.37.14.92.31 1.94.36 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c1.02-.05 1.57-.22 1.94-.36.49-.19.84-.42 1.21-.79.37-.37.6-.72.79-1.21.14-.37.31-.92.36-1.94.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.05-1.02-.22-1.57-.36-1.94a3.27 3.27 0 00-.79-1.21 3.27 3.27 0 00-1.21-.79c-.37-.14-.92-.31-1.94-.36C15.51 3.01 15.14 3 12 3zm0 3.05a5.95 5.95 0 110 11.9 5.95 5.95 0 010-11.9zm0 1.8a4.15 4.15 0 100 8.3 4.15 4.15 0 000-8.3zm6.18-2.1a1.39 1.39 0 110 2.78 1.39 1.39 0 010-2.78z"/></svg></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.07C22 6.51 17.52 2 12 2S2 6.51 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.02H7.9v-2.91h2.54V9.84c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.91h-2.34V22c4.78-.75 8.43-4.91 8.43-9.93z"/></svg></a>
+            <a href="#" class="social-icon" aria-label="WhatsApp"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0012.05 0C5.5 0 .14 5.34.13 11.91c0 2.1.55 4.15 1.6 5.95L0 24l6.3-1.65a11.92 11.92 0 005.74 1.46h.01c6.55 0 11.9-5.34 11.91-11.91 0-3.18-1.24-6.17-3.44-8.42zM12.05 21.8h-.01a9.86 9.86 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 012.9 7c0 5.45-4.44 9.87-9.9 9.87zm5.43-7.4c-.3-.15-1.76-.87-2.03-.96-.27-.1-.47-.15-.66.15s-.76.96-.94 1.16c-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47a9 9 0 01-1.66-2.06c-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.91-2.19-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.45s1.06 2.85 1.21 3.05c.15.2 2.09 3.2 5.07 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 py-5 text-sm text-white/60 flex flex-col sm:flex-row gap-3 justify-between items-center">
+          <p>© <span id="year"></span> CENTRIA — Centro de Terapia Integral. Todos los derechos reservados.</p>
+          <p>Hecho con ♥ para tu bienestar.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

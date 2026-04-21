@@ -1,0 +1,444 @@
+/* CENTRIA — estilos personalizados (complementan a Tailwind via CDN) */
+:root {
+  --centria-primary: #88b7bf;
+  --centria-primary-dark: #6a9ba3;
+  --centria-cream: #fbfedf;
+  --centria-cream-deep: #f4f7d4;
+  --centria-ink: #2f4a4f;
+  --centria-muted: #6b7f83;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--centria-ink);
+  background-color: #ffffff;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Poppins", "Nunito", system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Botón principal */
+.btn-primary {
+  background-color: var(--centria-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 20px -10px rgba(136, 183, 191, 0.7);
+}
+.btn-primary:hover {
+  background-color: var(--centria-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(106, 155, 163, 0.7);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--centria-primary);
+  color: var(--centria-primary);
+  padding: 0.7rem 1.4rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-outline:hover {
+  background-color: var(--centria-primary);
+  color: #fff;
+}
+
+/* Header */
+.nav-link {
+  position: relative;
+  color: var(--centria-ink);
+  font-weight: 500;
+  padding: 0.4rem 0;
+  transition: color 0.2s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--centria-primary);
+  transition: width 0.3s ease;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--centria-primary-dark);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Tarjetas */
+.card {
+  background-color: #fff;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  border: 1px solid rgba(136, 183, 191, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px -25px rgba(47, 74, 79, 0.35);
+  border-color: rgba(136, 183, 191, 0.5);
+}
+
+.icon-bubble {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background-color: var(--centria-cream);
+  color: var(--centria-primary-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.card:hover .icon-bubble {
+  background-color: var(--centria-primary);
+  color: #fff;
+  transform: rotate(-6deg);
+}
+
+/* Sección hero overlay */
+.hero-overlay {
+  background: linear-gradient(
+    100deg,
+    rgba(251, 254, 223, 0.95) 0%,
+    rgba(251, 254, 223, 0.75) 45%,
+    rgba(251, 254, 223, 0.1) 100%
+  );
+}
+
+/* Slider testimonios */
+.slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+.slider-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.slider-slide {
+  flex: 0 0 100%;
+  padding: 2.5rem;
+}
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background-color: rgba(136, 183, 191, 0.35);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.slider-dot.active {
+  background-color: var(--centria-primary);
+  width: 28px;
+}
+
+/* Animaciones reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Form */
+.field {
+  width: 100%;
+  border: 1px solid rgba(136, 183, 191, 0.3);
+  background-color: #fff;
+  border-radius: 0.85rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field:focus {
+  outline: none;
+  border-color: var(--centria-primary);
+  box-shadow: 0 0 0 4px rgba(136, 183, 191, 0.18);
+}
+
+/* Footer */
+.social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(136, 183, 191, 0.15);
+  color: var(--centria-primary-dark);
+  transition: all 0.25s ease;
+}
+.social-icon:hover {
+  background-color: var(--centria-primary);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Mobile menu transition */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+#mobile-menu.open {
+  max-height: 480px;
+}
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.wa-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 62px;
+  height: 62px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45),
+              0 4px 10px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+  text-decoration: none;
+  animation: wa-bounce 2.4s ease-in-out infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.wa-float::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(37, 211, 102, 0.55);
+  z-index: -1;
+  animation: wa-pulse 2s ease-out infinite;
+}
+.wa-float svg {
+  width: 32px;
+  height: 32px;
+}
+.wa-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.55),
+              0 6px 14px rgba(0, 0, 0, 0.18);
+}
+.wa-tooltip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  background: #1f2937;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+.wa-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: #1f2937;
+}
+.wa-float:hover .wa-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+@keyframes wa-pulse {
+  0%   { transform: scale(1);   opacity: 0.65; }
+  80%  { transform: scale(1.6); opacity: 0;    }
+  100% { transform: scale(1.6); opacity: 0;    }
+}
+@keyframes wa-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@media (max-width: 640px) {
+  .wa-float { width: 56px; height: 56px; right: 16px; bottom: 16px; }
+  .wa-float svg { width: 28px; height: 28px; }
+  .wa-tooltip { display: none; }
+}
+
+/* ---------- Botón flotante de FAQ + Chat ---------- */
+.faq-float {
+  position: fixed;
+  right: 22px;
+  bottom: 92px; /* encima del WhatsApp */
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--centria-primary), var(--centria-primary-dark));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px -8px rgba(106, 155, 163, 0.65);
+  cursor: pointer;
+  border: none;
+  z-index: 998;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: faq-bounce 3s ease-in-out infinite;
+}
+.faq-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 30px -8px rgba(106, 155, 163, 0.85);
+}
+.faq-float svg { width: 28px; height: 28px; }
+.faq-float .faq-tooltip {
+  position: absolute;
+  right: 70px;
+  background: #fff;
+  color: var(--centria-ink);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px -6px rgba(0,0,0,0.18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.faq-float:hover .faq-tooltip { opacity: 1; transform: translateX(0); }
+
+@keyframes faq-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Panel del chat de FAQ */
+.faq-panel {
+  position: fixed;
+  right: 22px;
+  bottom: 162px;
+  width: 340px;
+  max-width: calc(100vw - 44px);
+  max-height: 70vh;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px -12px rgba(0,0,0,0.25);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999;
+  border: 1px solid rgba(136, 183, 191, 0.25);
+  animation: faq-pop 0.25s ease;
+}
+.faq-panel.open { display: flex; }
+
+@keyframes faq-pop {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.faq-header {
+  background: linear-gradient(135deg, var(--centria-primary), var(--centria-primary-dark));
+  color: #fff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.faq-header h4 { margin: 0; font-size: 15px; font-weight: 700; font-family: "Poppins", sans-serif; }
+.faq-header p { margin: 2px 0 0; font-size: 12px; opacity: 0.9; }
+.faq-close {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: #fff;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.faq-close:hover { background: rgba(255,255,255,0.35); }
+
+.faq-body {
+  padding: 14px;
+  overflow-y: auto;
+  background: var(--centria-cream);
+  flex: 1;
+}
+.faq-msg {
+  background: #fff;
+  border-radius: 14px 14px 14px 4px;
+  padding: 10px 12px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  color: var(--centria-ink);
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.08);
+  max-width: 90%;
+}
+.faq-msg.user {
+  background: var(--centria-primary);
+  color: #fff;
+  margin-left: auto;
+  border-radius: 14px 14px 4px 14px;
+}
+.faq-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: #fff;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.faq-q-btn {
+  background: var(--centria-cream);
+  border: 1px solid rgba(136, 183, 191, 0.35);
+  color: var(--centria-ink);
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  font-family: inherit;
+}
+.faq-q-btn:hover {
+  background: var(--centria-primary);
+  color: #fff;
+  border-color: var(--centria-primary);
+}
+
+@media (max-width: 640px) {
+  .faq-float { width: 52px; height: 52px; bottom: 84px; right: 18px; }
+  .faq-float svg { width: 24px; height: 24px; }
+  .faq-float .faq-tooltip { display: none; }
+  .faq-panel { right: 14px; bottom: 144px; width: calc(100vw - 28px); }
+}
