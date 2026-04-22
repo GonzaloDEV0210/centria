@@ -121,38 +121,133 @@
   if (form) {
     const status = document.getElementById("form-status");
 
+    const nameInput = form.name;
+    const emailInput = form.email;
+    const whatsappInput = form.whatsapp;
+    const messageInput = form.message;
+
+    const nameError = document.getElementById("name-error");
+    const emailError = document.getElementById("email-error");
+    const whatsappError = document.getElementById("whatsapp-error");
+    const messageError = document.getElementById("message-error");
+
+    const hideError = (el) => { if (el) el.classList.add("hidden"); };
+    const showError = (el) => { if (el) el.classList.remove("hidden"); };
+
+    if (nameInput) nameInput.addEventListener("input", () => hideError(nameError));
+    if (emailInput) emailInput.addEventListener("input", () => hideError(emailError));
+    if (whatsappInput) {
+      whatsappInput.addEventListener("input", function() {
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9);
+        hideError(whatsappError);
+      });
+    }
+    if (messageInput) messageInput.addEventListener("input", () => hideError(messageError));
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const whatsapp = form.whatsapp ? form.whatsapp.value.trim() : "";
-      const message = form.message.value.trim();
+      
+      let isValid = true;
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const whatsapp = whatsappInput ? whatsappInput.value.trim() : "";
+      const message = messageInput.value.trim();
 
-      if (name.length < 2 || name.length > 80) {
-        return setStatus("Por favor ingresa un nombre válido (2 a 80 caracteres).", "error");
+      if (status) status.textContent = "";
+
+      if (!name) {
+        showError(nameError);
+        isValid = false;
+      } else {
+        hideError(nameError);
       }
+      
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRe.test(email) || email.length > 120) {
-        return setStatus("Ingresa un correo electrónico válido.", "error");
+      if (!email || !emailRe.test(email)) {
+        showError(emailError);
+        isValid = false;
+      } else {
+        hideError(emailError);
       }
-      const waDigits = whatsapp.replace(/\D/g, "");
-      if (waDigits.length < 7 || waDigits.length > 15) {
-        return setStatus("Ingresa un número de WhatsApp válido (7 a 15 dígitos).", "error");
+      
+      if (!whatsapp || whatsapp.length !== 9) {
+        showError(whatsappError);
+        isValid = false;
+      } else {
+        hideError(whatsappError);
       }
-      if (message.length < 10 || message.length > 1000) {
-        return setStatus("Tu mensaje debe tener entre 10 y 1000 caracteres.", "error");
+      
+      if (!message) {
+        showError(messageError);
+        isValid = false;
+      } else {
+        hideError(messageError);
       }
 
-      setStatus("¡Gracias! Tu mensaje ha sido enviado. Te contactaremos pronto.", "success");
-      form.reset();
+      if (!isValid) return;
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Enviando...';
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+
+      fetch('enviar.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(async response => {
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || "Error en el servidor");
+        return data;
+      })
+      .then(data => {
+        if (data.status === 'success') {
+          showToast("¡Mensaje enviado!", "Te contactaremos en menos de 24 horas.");
+          form.reset();
+        } else {
+          alert("Aviso: " + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("Ocurrió un error al intentar enviar el mensaje. Revisa tu conexión o inténtalo más tarde.");
+      })
+      .finally(() => {
+        submitBtn.innerHTML = originalBtnHtml;
+        submitBtn.disabled = false;
+      });
     });
 
-    function setStatus(msg, type) {
-      if (!status) return;
-      status.textContent = msg;
-      status.className =
-        "mt-4 text-sm font-medium " +
-        (type === "success" ? "text-emerald-700" : "text-red-600");
+    function showToast(title, message) {
+      let toast = document.getElementById("success-toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "success-toast";
+        toast.className = "toast-notification";
+        toast.innerHTML = `
+          <svg class="toast-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div class="toast-content">
+            <span class="toast-title"></span>
+            <span class="toast-message"></span>
+          </div>
+        `;
+        document.body.appendChild(toast);
+      }
+      
+      toast.querySelector(".toast-title").textContent = title;
+      toast.querySelector(".toast-message").textContent = message;
+      
+      toast.classList.remove("show");
+      void toast.offsetWidth; // Force reflow
+      toast.classList.add("show");
+      
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4500);
     }
   }
 })();

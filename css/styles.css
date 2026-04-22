@@ -442,3 +442,47 @@ h1, h2, h3, h4 {
   .faq-float .faq-tooltip { display: none; }
   .faq-panel { right: 14px; bottom: 144px; width: calc(100vw - 28px); }
 }
+
+/* ---------- Toast Notification ---------- */
+.toast-notification {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background-color: #fff;
+  border-left: 4px solid var(--centria-primary);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  padding: 16px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10000;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+}
+.toast-notification.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+.toast-icon {
+  width: 28px;
+  height: 28px;
+  color: #10b981;
+  flex-shrink: 0;
+}
+.toast-content {
+  display: flex;
+  flex-direction: column;
+}
+.toast-title {
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: var(--centria-ink);
+  font-size: 15px;
+}
+.toast-message {
+  font-size: 13px;
+  color: var(--centria-muted);
+  margin-top: 2px;
+}
