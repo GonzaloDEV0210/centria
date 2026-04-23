@@ -94,27 +94,28 @@ h1, h2, h3, h4 {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 40px -25px rgba(47, 74, 79, 0.35);
-  border-color: rgba(136, 183, 191, 0.5);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 25px 50px -15px rgba(47, 74, 79, 0.3);
+  border-color: rgba(136, 183, 191, 0.6);
 }
 
 .icon-bubble {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
   background-color: var(--centria-cream);
   color: var(--centria-primary-dark);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .card:hover .icon-bubble {
   background-color: var(--centria-primary);
   color: #fff;
-  transform: rotate(-6deg);
+  transform: scale(1.1) rotate(-8deg);
+  box-shadow: 0 10px 20px -5px rgba(136, 183, 191, 0.5);
 }
 
 /* Sección hero overlay */
@@ -485,4 +486,14 @@ h1, h2, h3, h4 {
   font-size: 13px;
   color: var(--centria-muted);
   margin-top: 2px;
+}
+
+/* Preloader Animation */
+@keyframes spin360 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-360 {
+  animation: spin360 2s linear infinite;
 }

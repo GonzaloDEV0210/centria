@@ -254,7 +254,7 @@
 
 /* ---------- Botón flotante de WhatsApp ---------- */
 (function initWhatsApp() {
-  const phone = "51999999999"; // <-- reemplazar por el número real (formato internacional sin +)
+  const phone = "51993894667"; // <-- reemplazar por el número real (formato internacional sin +)
   const message = encodeURIComponent("Hola, me gustaría agendar una cita en CENTRIA.");
   const a = document.createElement("a");
   a.href = `https://wa.me/${phone}?text=${message}`;
@@ -275,11 +275,11 @@
   const faqs = [
     {
       q: "¿Dónde están ubicados?",
-      a: "Estamos en Av. Principal 123, Lima. La atención es 100% presencial en nuestro centro."
+      a: "Estamos en Calle W, Mz Q2 Séptima Etapa-Santo Domingo de Carabayllo, Carabayllo. La atención es 100% presencial en nuestro centro."
     },
     {
       q: "¿Cuál es el horario de atención?",
-      a: "Atendemos de Lunes a Viernes de 9:00 a 20:00 y Sábados de 9:00 a 14:00."
+      a: "Atendemos de Lunes a Viernes de 4:00 PM a 8:00 PM y Sábados de 8:00 AM a 1:00 PM."
     },
     {
       q: "¿Cómo agendo una cita?",
@@ -371,3 +371,16 @@
   btn.addEventListener("click", () => panel.classList.toggle("open"));
   closeBtn.addEventListener("click", () => panel.classList.remove("open"));
 })();
+
+// Preloader Logic
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 700);
+        }, 1500);
+    }
+});
