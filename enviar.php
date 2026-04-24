@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->setFrom('notiweb@centriaperu.com', 'CENTRIA Web');
         
         // Correo al que llegarán los mensajes del formulario
-        $mail->addAddress('correoprueba@colegiolacatolica.edu.pe', 'Contacto CENTRIA'); 
+        $mail->addAddress('contacto@centriaperu.com', 'Contacto CENTRIA'); 
         $mail->addReplyTo($email, $name);
 
         // 5. Contenido del correo
